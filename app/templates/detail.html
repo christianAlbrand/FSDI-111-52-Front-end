@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ task["name"] }}{% endblock title %}
+
+{% block content %}
+<div class="detail-container">
+    <h1>{{ task["name"] }} 
+        <a class="hide-links" href="{{ url_for('get_edit_form', pk=task['id']) }}">
+            <img src="{{ url_for('static', filename='css/images/edit.png')}}" class="edit-image">
+        </a>
+        <a class="hide-links" href="{{ url_for('get_delete_form', pk=task['id']) }}">
+            <img src="{{ url_for('static', filename='css/images/trash-can.png')}}" class="edit-image">
+        </a>
+        
+    </h1>
+    <small>Is Done: {{ task["is_done"] }}</small>
+    <h3>{{ task["summary"] }}</h3>
+    <p>{{ task["body"] }}</p>
+</div>
+<!-- <p>
+    <a class="btn btn-primary fix-btn" href="{{ url_for('get_edit_form', pk=task['id']) }}">Edit</a>
+    <img src="{{ url_for('static', filename='css/images/edit.png')}}" class="edit-image">
+</p>
+<p>
+    <a class="btn btn-danger fix-btn" href="{{ url_for('get_delete_form', pk=task['id']) }}">Delete</a>
+    <img src="{{ url_for('static', filename='css/images/trash-can.png')}}" class="edit-image">
+</p> -->
+{% endblock content %}
